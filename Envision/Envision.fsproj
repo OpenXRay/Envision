@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Constants\MessageType.fs" />
+    <Compile Include="Common\State.fs" />
+    <Compile Include="Common\Reducer.fs" />
+    <Compile Include="Controls\Menu.fs" />
+    <Compile Include="Pages\MainPage.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="0.9.7" />
+    <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.4.0" />
+    <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.4.0" />
+    <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.4.0" />
+  </ItemGroup>
+
+</Project>
