@@ -8,9 +8,11 @@ open Avalonia.FuncUI
 open Avalonia.FuncUI.DSL
 open Avalonia.FuncUI.Elmish
 open Avalonia.FuncUI.Components.Hosts
-open Envision.Controls
+open Envision.Constants
 open Envision.Common
+open Envision.Controls
 open Envision.Pages
+open Envision.Reducers
 
 type MainWindow() as this =
     inherit HostWindow()
@@ -19,13 +21,16 @@ type MainWindow() as this =
         base.Width <- 600.0
         base.Height <- 400.0
 
-        let view (state: State.GlobalState) dispatch =
+        let view (state: State.GlobalState) (dispatch: MessageType.Actions -> unit) =
             Grid.create[
+                Grid.showGridLines true
                 Grid.rowDefinitions "Auto,*"
 
                 Grid.children[
                     MenuControl.view dispatch
-                    MainPage.view state.CurrentPage
+                    match state.CurrentPage with
+                        | PageType.Main -> MainPage.view state.Counter
+                        | PageType.Settings -> SettingsPage.view dispatch
                 ]
             ]
 

@@ -1,10 +1,14 @@
 ﻿namespace Envision.Common
 
+open Envision.Constants
+
 module State =
     type GlobalState = {
-        CurrentPage: string
+        CurrentPage: PageType.Page
+        Counter: int
     }
 
     let init() = {
-        CurrentPage = "Home"
+        CurrentPage = PageType.Main
+        Counter = 0
     }

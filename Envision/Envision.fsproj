@@ -6,11 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Constants\PageType.fs" />
     <Compile Include="Constants\MessageType.fs" />
     <Compile Include="Common\State.fs" />
-    <Compile Include="Common\Reducer.fs" />
     <Compile Include="Controls\Menu.fs" />
+    <Compile Include="Pages\SettingsPage.fs" />
     <Compile Include="Pages\MainPage.fs" />
+    <Compile Include="Reducers\CommonReducer.fs" />
+    <Compile Include="Reducers\NavigationReducer.fs" />
+    <Compile Include="Reducers\Reducer.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

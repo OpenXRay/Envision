@@ -2,7 +2,7 @@
 
 open Avalonia.Controls
 open Avalonia.FuncUI.DSL
-open Envision.Constants
+open Envision.Constants.MessageType
 
 module MenuControl =
     let createMenuItem (text:string) onClick = 
@@ -11,12 +11,12 @@ module MenuControl =
             MenuItem.onClick onClick
         ]
 
-    let view dispatch =
+    let view (dispatch: Actions -> unit) =
         Menu.create[
             Grid.row 0
 
             Menu.viewItems[
-                createMenuItem "Main" (fun _ -> dispatch MessageType.Main)
-                createMenuItem "Versions" (fun _ -> dispatch MessageType.Versions)
+                createMenuItem "Main" (fun _ -> Navigation.Main |> NavigationAction |> dispatch)
+                createMenuItem "Versions" (fun _ -> Navigation.Versions |> NavigationAction |> dispatch)
             ]
         ]
